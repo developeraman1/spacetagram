@@ -1,7 +1,7 @@
 import { ApodResponse } from "@/types/nasa";
 
 export async function fetchApods(startDate: string, endDate: string): Promise<ApodResponse[]> {
-  const apiKey = process.env.NEXT_PUBLIC_NASA_API_KEY;
+  const apiKey = process.env.NASA_API_KEY;
 
   if (!apiKey) {
     throw new Error("NASA API key is not configured");
