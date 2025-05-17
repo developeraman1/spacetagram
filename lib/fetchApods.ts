@@ -24,7 +24,6 @@ export async function fetchApods(startDate: string, endDate: string): Promise<Ap
 
     const data: ApodResponse[] = await response.json();
     
-    // Format dates and filter unwanted items
     return data
       .map(item => ({
         ...item,
