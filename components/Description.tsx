@@ -1,0 +1,20 @@
+"use client"
+import { useState } from "react"
+import { Button } from "./ui/button"
+
+export default function ExpandableDescription({ description }: { description: string }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <p className="text-sm leading-relaxed text-muted-foreground">
+      {isExpanded ? description : description.slice(0, 130)}
+      <Button
+        variant={"link"}
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="text-primary underline hover:text-primary/80 transition"
+      >
+        {isExpanded ? "Show less" : "Read more"}
+      </Button>
+    </p>
+  )
+}
