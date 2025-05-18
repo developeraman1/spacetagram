@@ -32,13 +32,20 @@ export async function fetchApods(startDate: string, endDate: string): Promise<Ap
       return [];
     }
 
+    // Validate and filter items more safely
     return data
-      .filter(item => 
-        item && 
-        typeof item.url === 'string' && 
-        !item.url.includes('youtube.com') &&
-        typeof item.date === 'string'
-      )
+      .filter(item => {
+        // Check if item exists and has required properties
+        if (!item || !item.url || !item.date) {
+          return false;
+        }
+        // Filter out YouTube videos
+        if (item.url.toLowerCase().includes('youtube.com') || 
+            item.url.toLowerCase().includes('youtu.be')) {
+          return false;
+        }
+        return true;
+      })
       .map(item => ({
         ...item,
         date: new Date(item.date).toLocaleDateString('en-US', {
@@ -51,6 +58,6 @@ export async function fetchApods(startDate: string, endDate: string): Promise<Ap
 
   } catch (error) {
     console.error('Error fetching APOD data:', error);
-    return []; // Return empty array instead of throwing
+    return [];
   }
 }
