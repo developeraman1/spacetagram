@@ -4,26 +4,24 @@ A simple project built using [Next.js](https://nextjs.org/) and the [NASA Astron
 
 This is my **first project using Next.js**, and I built it to learn how Next.js works — especially routing, server-side rendering, and API integration.
 
-## 📸 Features
+## Features
 
 - Fetches the Astronomy Picture of the Day from NASA
 - Clean UI with minimal styling
 - Uses `next/image` for image optimization
 - Responsive and accessible
 
-## 🚧 Learning Phase
+## Learning Phase
 
 > I'm still learning Next.js — this is an amateur project and a work in progress.  
 > **I would love feedback** or suggestions on how to improve it!
 
-Feel free to open an issue or a pull request if you spot something!
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - Next.js (App Router or Pages Router — depending on what you used)
-- TypeScript (optional)
+- TypeScript 
 - NASA APOD API
-- Deployed on [Vercel](https://vercel.com)
 
 ## 📦 Getting Started
 
