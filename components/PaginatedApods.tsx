@@ -20,9 +20,11 @@ export default function PaginatedApods({ apods }: { apods: ApodResponse[] }) {
         <ApodCard
           key={apod.date}
           title={apod.title}
-          description={apod.explanation}
-          image={apod.url}
+          explanation={apod.explanation}
+          url={apod.url}
           date={apod.date}
+          mediaType={apod.media_type}
+          thumbnail_url={apod.thumbnail_url}
         />
       ))}
 

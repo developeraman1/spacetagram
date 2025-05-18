@@ -12,46 +12,54 @@ import ExpandableDescription from "./Description"
 
 interface CardProps {
   title: string
-  description: string
-  image: string
+  explanation: string
+  url: string
   date: string
+  mediaType: string
+  thumbnail_url?: string
 }
 
 export default function ApodCard({
   title,
-  description,
-  image,
+  explanation,
+  url,
   date,
+  mediaType,
+  thumbnail_url
 }: CardProps) {
+  const imageUrl = mediaType === "video" ? thumbnail_url || "" : url;
+
+  if (!imageUrl) return null;
+
   return (
-    <Card className="rounded-2xl bg-background shadow-lg border border-border text-foreground overflow-hidden">
-      <CardHeader>
-        <CardTitle className="text-2xl font-semibold leading-snug">
+    <Card className="overflow-hidden border-none shadow-xl bg-white/5 backdrop-blur-sm">
+      <CardHeader className="space-y-2 pb-4">
+        <CardTitle className="text-2xl font-bold tracking-tight leading-none">
           {title}
         </CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">
+        <CardDescription className="text-sm font-medium text-muted-foreground">
           {date}
         </CardDescription>
       </CardHeader>
 
       <CardContent className="p-0">
-        <div className="relative w-full h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[42rem]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-md">
           <Image
-            src={image}
+            src={imageUrl}
             alt={title}
-            sizes="100vh"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1400px"
             priority
-            className="object-cover"
+            className="object-cover transition-all hover:scale-105 duration-700"
           />
         </div>
 
-        <div className="p-6">
-          <ExpandableDescription description={description} />
+        <div className="px-6 py-4">
+          <ExpandableDescription explanation={explanation} />
         </div>
       </CardContent>
 
-      <CardFooter className="pt-0 px-6 pb-4" />
+      <CardFooter className="pt-0 px-6 pb-6" />
     </Card>
   )
 }

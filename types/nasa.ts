@@ -7,5 +7,6 @@ export type ApodResponse = {
   service_version?: string
   title: string
   url: string
+  thumbnail_url?: string
 }
 

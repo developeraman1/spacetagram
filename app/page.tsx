@@ -1,6 +1,6 @@
-import { fetchApods } from "@/lib/fetchApods";
-import { ApodResponse } from "@/types/nasa";
+import {fetchApod} from "@/lib/api";
 import PaginatedApods from "@/components/PaginatedApods";
+import { ApodResponse } from "@/types/nasa";
 
 export default async function Home() {
  
@@ -12,7 +12,7 @@ export default async function Home() {
   const startDate = thirtyDaysAgo.toISOString().split('T')[0];
   
 
-  const apodsData: ApodResponse[] = await fetchApods(startDate, endDate);
+  const apodsData: ApodResponse[] = await fetchApod(startDate, endDate);
 
   return <PaginatedApods apods={apodsData} />
 

@@ -2,12 +2,12 @@
 import { useState } from "react"
 import { Button } from "./ui/button"
 
-export default function ExpandableDescription({ description }: { description: string }) {
+export default function ExpandableDescription({ explanation }: { explanation: string }) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
     <p className="text-sm leading-relaxed text-muted-foreground">
-      {isExpanded ? description : description.slice(0, 130)}
+      {isExpanded ? explanation : explanation.slice(0, 130)}
       <Button
         variant={"link"}
         onClick={() => setIsExpanded(!isExpanded)}

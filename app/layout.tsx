@@ -36,7 +36,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="container max-w-3xl py-6 mx-auto">{children}</main>
+          <main className="container max-w-2xl py-6 mx-auto">{children}</main>
           <footer className="container max-w-2xl py-6 px-4 mx-auto">
             <p className="text-sm text-center text-muted-foreground">
                 Built with 🤍 using the{" "}
