@@ -19,7 +19,7 @@ This is my **first project using Next.js**, and I built it to learn how Next.js 
 
 ## Tech Stack
 
-- Next.js (App Router or Pages Router — depending on what you used)
+- Next.js
 - TypeScript 
 - NASA APOD API
 
