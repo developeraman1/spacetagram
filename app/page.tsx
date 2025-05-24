@@ -7,9 +7,9 @@ export default async function Home() {
   const today = new Date();
   const endDate = new Date().toISOString().split('T')[0];
 
-  const thirtyDaysAgo = new Date(today);
-  thirtyDaysAgo.setDate(today.getDate() - 30);
-  const startDate = thirtyDaysAgo.toISOString().split('T')[0];
+  const daysAgo = new Date(today);
+  daysAgo.setDate(today.getDate() - 24);
+  const startDate = daysAgo.toISOString().split('T')[0];
   
 
   const apodsData: ApodResponse[] = await fetchApod(startDate, endDate);

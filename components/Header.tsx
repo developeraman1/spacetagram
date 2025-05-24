@@ -15,26 +15,7 @@ export default function Header() {
             Spacetagram
           </Link>
         </div>
-
-        <nav className="flex items-center gap-4">
-          <Button 
-            asChild 
-            variant="ghost" 
-            size="sm"
-            className="gap-2 text-muted-foreground hover:text-foreground"
-          >
-            <a 
-              href="https://github.com/developeraman1/spacetagram" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center"
-            >
-              <Github className="h-5 w-5" />
-              <span className="font-medium">GitHub</span>
-            </a>
-          </Button>
-          <ModeToggle />
-        </nav>
+        <ModeToggle />
       </div>
     </header>
   );
